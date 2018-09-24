@@ -100,10 +100,6 @@ class ContextFormatter(logging.Formatter):
             # string includes the bits we need to include it.
             fmt += ': %(error_summary)s'
 
-        if (record.levelno == logging.DEBUG and
-                self.conf.logging_debug_format_suffix):
-            fmt += " " + self.conf.logging_debug_format_suffix
-
         self._compute_iso_time(record)
 
         if sys.version_info < (3, 2):

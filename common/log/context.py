@@ -42,5 +42,4 @@ class RequestContext(object):
         values = dict()
         values.update(self.to_dict())
 
-
         return values

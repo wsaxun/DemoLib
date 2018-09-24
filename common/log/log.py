@@ -60,6 +60,7 @@ def getLogger(name=None, project='unknown', version='unknown'):
             'project': project,
             'version': version
         })
+
     return _loggers[name]
 
 
