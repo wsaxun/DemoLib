@@ -1,7 +1,8 @@
 from collections import namedtuple
 from common.log import log as logging
-from common.log import context
+from common.context import RequestContext
 
+import uuid
 import sys
 sys.path.append('../')
 
@@ -30,6 +31,8 @@ CONF = Cfg(
     }
 )
 
+def generate_request_id():
+    return uuid.uuid4().hex
 
 if __name__ == '__main__':
     logging.setup(CONF)
@@ -37,6 +40,8 @@ if __name__ == '__main__':
     LOG.info("Welcome to Logging")
     LOG.info("Without context")
 
-    context.RequestContext(tenant_id='d6134462', request_id=None)
+    request_id = generate_request_id()
+    tenent_id = '10000'
+    RequestContext(request_id=request_id,project_id=tenent_id)
 
     LOG.info("With context")

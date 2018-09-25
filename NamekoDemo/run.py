@@ -17,7 +17,7 @@ from nameko.runners import ServiceRunner
 from collections import namedtuple
 
 # from timemachine.common import log as logging
-from common.log import context, log as logging
+from common.log import log as logging
 from NamekoDemo.service import TaskService
 
 LOG = logging.getLogger(__name__)
@@ -73,7 +73,9 @@ def run(services, config, backdoor_port=None):
         try:
             runnlet.wait()
         except OSError as exc:
+            LOG.info('OSERROR.')
             if exc.errno == errno.EINTR:
+                LOG.info('ERRNO EINTR.')
                 # this is the OSError(4) caused by the signalhandler.
                 # ignore and go back to waiting on the runner
                 continue
@@ -82,11 +84,14 @@ def run(services, config, backdoor_port=None):
             print()  # looks nicer with the ^C e.g. bash prints in the terminal
             try:
                 service_runner.stop()
+                LOG.info('SERVICE RUNNER STOP!')
             except KeyboardInterrupt:
                 print()  # as above
+                LOG.info('SERVICE RUNNER KILLED!')
                 service_runner.kill()
         else:
             # runner.wait completed
+            LOG.info('RUNNER WAIT COMPLETED.')
             break
 
 
@@ -95,31 +100,34 @@ def main():
     config = {'AMQP_URI': 'amqp://guest:guest@localhost:5672'}
 
     Cfg = namedtuple('cfg', [
-        'log_file',
-        'log_dir',
-        'log_date_format',
-        'debug',
-        'logging_default_format_string',
-        'logging_context_format_string',
+        'date_format',
+        'level',
+        'default_format_string',
+        'context_format_string',
+        'rotating_filehandler',
     ])
 
     CONF = Cfg(
-        log_file=None,
-        log_dir=None,
-        log_date_format='%Y-%m-%d %H:%M:%S',
-        debug=False,
-        logging_default_format_string='%(asctime)s %(process)d %(thread)d %(levelname)s %(name)s %(instance)s%(message)s',
-        logging_context_format_string='%(asctime)s %(process)d %(thread)d %(levelname)s %(name)s [%(request_id)s] %(instance)s%(message)s'
+        date_format='%Y-%m-%d %H:%M:%S',
+        level='INFO',
+        default_format_string='%(asctime)s %(process)d %(thread)d %(levelname)s %(name)s %(instance)s%(message)s',
+        context_format_string='%(asctime)s %(process)d %(thread)d %(levelname)s %(name)s [%(request_id)s] %(message)s',
+        rotating_filehandler={
+            'filename': 'timemachine-efs.log',
+            'filepath': '/home/greene/Github/DemoLib/log',
+            'maxBytes': 104857600,
+            'backupCount': 1000,
+            'encoding': 'utf8'
+        }
     )
 
-    logging.setup(CONF, DOMAIN)
+    logging.setup(CONF)
 
     # context.RequestContext(tenant_id='d6134462', request_id=None, domain=DOMAIN)
 
     services = []
     services.append(TaskService)
 
-    LOG.info('add service.')
     run(services, config)
 
 

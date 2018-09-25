@@ -5,22 +5,23 @@ from eventlet.event import Event
 from nameko.rpc import rpc
 from nameko.extensions import DependencyProvider
 
-from common.log import context,log as logging
+from common.log import log as logging
+from common.context import RequestContext
 
 LOG = logging.getLogger(__name__)
 
 
 # a simple task
 def fibonacci(n):
-    context.RequestContext(tenant_id='d6134462', request_id=None, domain='demo')
+    RequestContext(request_id=uuid.uuid4().hex, project_id='10000')
     a, b = 1, 1
     LOG.info('fib')
     eventlet.sleep(10)
-    LOG.info('fib end.')
     for i in range(n-1):
         a, b = b, a+b
         if n % 50 == 0:
             eventlet.sleep()  # won't yield voluntarily since there's no i/o
+    LOG.info('fib end.')
     return a
 
 
@@ -40,7 +41,7 @@ class TaskProcessor(DependencyProvider):
         # get the named task
         task = self.tasks.get(name)
 
-        LOG.info('start_task.')
+        LOG.info('DependencyProvider start_task.')
 
         # execute it in a container thread and send the result to an Event
         event = Event()
@@ -77,10 +78,13 @@ class TaskService(object):
 
     @rpc
     def start_task(self, name, *args, **kwargs):
-        context.RequestContext(tenant_id='d6134462', request_id=None,
-                               domain='demo')
-        LOG.info('task service start.')
-        return self.processor.start_task(name, args, kwargs)
+
+        RequestContext(request_id=uuid.uuid4().hex,project_id='10000')
+        LOG.info('task start.')
+
+        result = self.processor.start_task(name, args, kwargs)
+        LOG.info('task end.')
+        return result
 
     @rpc
     def get_result(self, task_id):
