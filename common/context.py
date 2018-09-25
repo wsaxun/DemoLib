@@ -12,7 +12,6 @@ class RequestContext(object):
                  user_id=None,
                  is_admin=None,
                  **kwargs):
-        self.request_id = request_id
         self.project_id = project_id
 
         self.user_id = user_id
