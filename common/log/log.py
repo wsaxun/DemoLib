@@ -1,26 +1,28 @@
 import os
 import logging
 import logging.handlers
-from common.log import formatters, handlers as custom_handlers
-
-TRACE = custom_handlers._TRACE
+from logging import getLevelName
+import inspect
+from common.log import formatters
 
 
 class BaseLoggerAdapter(logging.LoggerAdapter):
     warn = logging.LoggerAdapter.warning
+    TRACE = 5
 
     @property
     def handlers(self):
         return self.logger.handlers
 
     def trace(self, msg, *args, **kwargs):
-        self.log(TRACE, msg, *args, **kwargs)
+        self.log(self.TRACE, msg, *args, **kwargs)
 
 
 class KeywordArgumentAdapter(BaseLoggerAdapter):
     def process(self, msg, kwargs):
         extra = {}
         extra.update(self.extra)
+
         if 'extra' in kwargs:
             extra.update(kwargs.pop('extra'))
 
@@ -53,8 +55,6 @@ _loggers = {}
 
 
 def getLogger(name=None, project='unknown', version='unknown'):
-    # if name and name.startswitch('oslo_'):
-    #     name = 'oslo.' + name[5:]
     if name not in _loggers:
         _loggers[name] = KeywordArgumentAdapter(logging.getLogger(name), {
             'project': project,
@@ -64,26 +64,7 @@ def getLogger(name=None, project='unknown', version='unknown'):
     return _loggers[name]
 
 
-def setup(conf,product_name,version='unknown'):
-    _setup_logging_from_conf(conf,product_name,version)
-
-def _get_log_file_path(conf, binary=None):
-    logfile = conf.log_file
-    logdir = conf.log_dir
-
-    if logfile and not logdir:
-        return logfile
-
-    if logfile and logdir:
-        return os.path.join(logdir, logfile)
-
-    if logdir:
-        binary = binary or custom_handlers._get_binary_name()
-        return '%s.log' % (os.path.join(logdir, binary),)
-    return None
-
-
-def _setup_logging_from_conf(conf, project, version):
+def setup(conf, version='unknown'):
     log_root = getLogger().logger
 
     for handler in list(log_root.handlers):
@@ -92,32 +73,38 @@ def _setup_logging_from_conf(conf, project, version):
     logpath = _get_log_file_path(conf)
 
     if logpath:
-        file_handler = logging.handlers.RotatingFileHandler
-        filelog = file_handler(logpath)
-        log_root.addHandler(filelog)
+        rotating_conf = conf.rotating_filehandler
+        rotating_conf.pop('filepath')
+        rotating_conf['filename'] = logpath
+        file_handler = logging.handlers.RotatingFileHandler(**rotating_conf)
 
-    streamlog = custom_handlers.ColorHandler()
+        log_root.addHandler(file_handler)
+
+    streamlog = logging.StreamHandler()
     log_root.addHandler(streamlog)
-
-    datefmt = conf.log_date_format
 
     for handler in log_root.handlers:
         handler.setFormatter(
-            formatters.ContextFormatter(project=project, version=version,
-                                        datefmt=datefmt, config=conf))
+            formatters.ContextFormatter(version=version,
+                                        datefmt=conf.date_format,
+                                        config=conf))
 
-    _refresh_root_level(conf.debug)
+    log_root.setLevel(getLevelName(conf.level))
 
 
-def _refresh_root_level(debug):
-    """Set the level of the root logger.
+def _get_log_file_path(conf):
+    rotating = conf.rotating_filehandler
+    logfile = rotating['filename']
+    logdir = rotating['filepath']
 
-    :param debug: If 'debug' is True, the level will be DEBUG.
-     Otherwise the level will be INFO.
-    """
-    log_root = getLogger().logger
-    if debug:
-        log_root.setLevel(logging.DEBUG)
-    else:
-        log_root.setLevel(logging.INFO)
+    if logfile and not logdir:
+        return logfile
 
+    if logfile and logdir:
+        return os.path.join(logdir, logfile)
+
+    if logdir:
+        binary = os.path.basename(
+            inspect.stack()[-1][1])  # get current file name
+        return '%s.log' % (os.path.join(logdir, binary),)
+    return None

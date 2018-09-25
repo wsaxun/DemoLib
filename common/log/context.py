@@ -13,11 +13,9 @@ class RequestContext(object):
     def __init__(self,
                  tenant_id=None,
                  request_id=None,
-                 domain=None,
                  overwrite=True):
         self.tenant_id = tenant_id
         self.request_id = request_id
-        self.domain = domain
 
         if not request_id:
             request_id = generate_request_id()
@@ -33,7 +31,6 @@ class RequestContext(object):
         """Return a dictionary of context attributes."""
 
         return {'tenant': self.tenant_id,
-                'domain': self.domain,
                 'request_id': self.request_id
                 }
 
