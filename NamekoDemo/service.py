@@ -12,8 +12,8 @@ LOG = logging.getLogger(__name__)
 
 
 # a simple task
-def fibonacci(n):
-    RequestContext(request_id=uuid.uuid4().hex, project_id='10000')
+def fibonacci(n,context):
+    # RequestContext(request_id=uuid.uuid4().hex, project_id='10000')
     a, b = 1, 1
     LOG.info('fib')
     eventlet.sleep(10)
@@ -34,7 +34,7 @@ class TaskProcessor(DependencyProvider):
         }
         self.results = {}
 
-    def start_task(self, name, args, kwargs):
+    def start_task(self, name, n,context):
         # generate unique id
         task_id = uuid.uuid4().hex
 
@@ -45,7 +45,7 @@ class TaskProcessor(DependencyProvider):
 
         # execute it in a container thread and send the result to an Event
         event = Event()
-        gt = self.container.spawn_managed_thread(lambda: task(*args, **kwargs))
+        gt = self.container.spawn_managed_thread(lambda: task(n,context))
         gt.link(lambda res: event.send(res.wait()))
 
         # store the Event and return the task's unique id to the caller
@@ -77,12 +77,12 @@ class TaskService(object):
     processor = TaskProcessor()
 
     @rpc
-    def start_task(self, name, *args, **kwargs):
+    def start_task(self, name, n):
 
-        RequestContext(request_id=uuid.uuid4().hex,project_id='10000')
+        context = RequestContext(request_id=uuid.uuid4().hex,project_id='10000')
+
         LOG.info('task start.')
-
-        result = self.processor.start_task(name, args, kwargs)
+        result = self.processor.start_task(name,n,context)
         LOG.info('task end.')
         return result
 

@@ -21,11 +21,12 @@ class RequestContext(object):
         #     request_id = generate_request_id()
         self.request_id = request_id
 
-        if not get_current():
-            self.update_store()
+
+        self.update_store()
 
     def update_store(self):
-        _request_store.context = self
+        if not get_current():
+            _request_store.context = self
 
     def to_dict(self):
         """Return a dictionary of context attributes."""
