@@ -11,9 +11,8 @@ eventlet.monkey_patch()  # noqa (code before rest of imports)
 import errno
 import signal
 
-from eventlet import backdoor
 
-from nameko.runners import ServiceRunner
+from nameko.runners import ServiceRunner,run_services
 from collections import namedtuple
 
 # from timemachine.common import log as logging
@@ -25,24 +24,6 @@ LOG = logging.getLogger(__name__)
 DOMAIN = 'demo'
 
 
-def setup_backdoor(runner, port):
-    def _bad_call():
-        raise RuntimeError(
-            'This would kill your service, not close the backdoor. To exit, '
-            'use ctrl-c.')
-
-    socket = eventlet.listen(('localhost', port))
-    # work around https://github.com/celery/kombu/issues/838
-    socket.settimeout(None)
-    gt = eventlet.spawn(
-        backdoor.backdoor_server,
-        socket,
-        locals={
-            'runner': runner,
-            'quit': _bad_call,
-            'exit': _bad_call,
-        })
-    return socket, gt
 
 
 def run(services, config, backdoor_port=None):
@@ -53,12 +34,11 @@ def run(services, config, backdoor_port=None):
     def shutdown(signum, frame):
         # signal handlers are run by the MAINLOOP and cannot use eventlet
         # primitives, so we have to call `stop` in a greenlet
+        LOG.info('shutdown')
         eventlet.spawn_n(service_runner.stop)
 
     signal.signal(signal.SIGTERM, shutdown)
 
-    if backdoor_port is not None:
-        setup_backdoor(service_runner, backdoor_port)
 
     service_runner.start()
 
@@ -68,30 +48,28 @@ def run(services, config, backdoor_port=None):
     # from seeing the exception, we wrap the runner.wait call in a greenlet
     # spawned here, so that we can catch (and silence) the exception.
     runnlet = eventlet.spawn(service_runner.wait)
-
+    # service_runner.wait()
     while True:
         try:
             runnlet.wait()
         except OSError as exc:
-            LOG.info('OSERROR.')
             if exc.errno == errno.EINTR:
-                LOG.info('ERRNO EINTR.')
                 # this is the OSError(4) caused by the signalhandler.
                 # ignore and go back to waiting on the runner
+                LOG.info('SERVICE ERRNO.')
                 continue
             raise
         except KeyboardInterrupt:
             print()  # looks nicer with the ^C e.g. bash prints in the terminal
             try:
                 service_runner.stop()
-                LOG.info('SERVICE RUNNER STOP!')
+                LOG.info('SERVICE STOP.')
             except KeyboardInterrupt:
                 print()  # as above
-                LOG.info('SERVICE RUNNER KILLED!')
                 service_runner.kill()
+                LOG.info('SERVICE KILL.')
         else:
             # runner.wait completed
-            LOG.info('RUNNER WAIT COMPLETED.')
             break
 
 
@@ -110,7 +88,7 @@ def main():
     CONF = Cfg(
         date_format='%Y-%m-%d %H:%M:%S',
         level='INFO',
-        default_format_string='%(asctime)s %(process)d %(thread)d %(levelname)s %(name)s %(instance)s%(message)s',
+        default_format_string='%(asctime)s %(process)d %(thread)d %(levelname)s %(name)s %(message)s',
         context_format_string='%(asctime)s %(process)d %(thread)d %(levelname)s %(name)s [%(request_id)s] %(message)s',
         rotating_filehandler={
             'filename': 'timemachine-efs.log',
@@ -122,6 +100,7 @@ def main():
     )
 
     logging.setup(CONF)
+
 
     # context.RequestContext(tenant_id='d6134462', request_id=None, domain=DOMAIN)
 

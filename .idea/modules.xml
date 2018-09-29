@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/DemoLib.iml" filepath="$PROJECT_DIR$/.idea/DemoLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../openstack/oslo.context-2.21.0/.idea/oslo.context-2.21.0.iml" filepath="$PROJECT_DIR$/../openstack/oslo.context-2.21.0/.idea/oslo.context-2.21.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../openstack/oslo.log-3.39.0/.idea/oslo.log-3.39.0.iml" filepath="$PROJECT_DIR$/../openstack/oslo.log-3.39.0/.idea/oslo.log-3.39.0.iml" />
+    </modules>
+  </component>
+</project>
