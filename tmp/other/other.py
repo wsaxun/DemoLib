@@ -1,19 +1,10 @@
-
+import uuid
+import logging.config as log_conf
 from common.log import log as logging
+from common.context import RequestContext
 from collections import namedtuple
 
-from other.other import func as func1
-from other.other2 import func as func2
-
-import uuid
-import sys
-sys.path.append('../')
-
 LOG = logging.getLogger(__name__)
-DOMAIN = 'demo'
-
-def generate_request_id():
-    return uuid.uuid4().hex
 
 Cfg = namedtuple('cfg', [
     'date_format',
@@ -38,18 +29,10 @@ CONF = Cfg(
     }
 )
 
-if __name__ == '__main__':
-    logging.setup(CONF,sub_log_path='logtest/test.log')
+logging.setup(CONF,sub_log_path='other/other.log')
 
-    LOG.info("Welcome to Logging")
-    LOG.info("Without context")
-
-    logger1 = LOG
-    func1()
-
-    logger2 = LOG
-    LOG.info("setup after")
-
-    func2()
-
-    LOG.info("setup 2 after")
+def func():
+    request_id = uuid.uuid4().hex
+    tenent_id = '10000'
+    RequestContext(request_id=request_id,project_id=tenent_id)
+    LOG.info("With context")

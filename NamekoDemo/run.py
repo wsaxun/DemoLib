@@ -99,8 +99,8 @@ def main():
         }
     )
 
-    logging.setup(CONF)
-
+    # logging.setup(CONF,name='NamekoDemo',sub_log_path='namekodemo/service.log')
+    logging.setup(CONF,sub_log_path='namekodemo/service.log')
 
     # context.RequestContext(tenant_id='d6134462', request_id=None, domain=DOMAIN)
 

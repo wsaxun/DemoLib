@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5daffdc6-85cd-4b96-b297-7ddf2d82445e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/DemoLib.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/usage_context.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NamekoDemo/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/NamekoDemo/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/log/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/log/log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/logtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/logtest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/other.py" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/other/other.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,14 +16,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/DemoLib$logtest.coverage" NAME="logtest Coverage Results" MODIFIED="1538215847246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp" />
+    <SUITE FILE_PATH="coverage/DemoLib$logtest.coverage" NAME="logtest Coverage Results" MODIFIED="1538296204382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp" />
     <SUITE FILE_PATH="coverage/DemoLib$namekotest.coverage" NAME="namekotest Coverage Results" MODIFIED="1538214132911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp" />
-    <SUITE FILE_PATH="coverage/DemoLib$run.coverage" NAME="run Coverage Results" MODIFIED="1538214693594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NamekoDemo" />
+    <SUITE FILE_PATH="coverage/DemoLib$run.coverage" NAME="run Coverage Results" MODIFIED="1538288892052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NamekoDemo" />
     <SUITE FILE_PATH="coverage/DemoLib$test.coverage" NAME="test Coverage Results" MODIFIED="1538103097381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/DemoLib$app.coverage" NAME="app Coverage Results" MODIFIED="1538018451238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NamekoDemo" />
     <SUITE FILE_PATH="coverage/DemoLib$test_view.coverage" NAME="test_view Coverage Results" MODIFIED="1538128223957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/DemoLib$usage_context.coverage" NAME="usage_context Coverage Results" MODIFIED="1537754487187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/DemoLib$other.coverage" NAME="other Coverage Results" MODIFIED="1538287969413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp" />
     <SUITE FILE_PATH="coverage/DemoLib$app__1_.coverage" NAME="app (1) Coverage Results" MODIFIED="1538126770651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FlaskDemo" />
+    <SUITE FILE_PATH="coverage/DemoLib$usage_context.coverage" NAME="usage_context Coverage Results" MODIFIED="1538290139476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp" />
     <SUITE FILE_PATH="coverage/DemoLib$test_log.coverage" NAME="test_log Coverage Results" MODIFIED="1537883210111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
   <component name="FUSProjectUsageTrigger">
@@ -36,11 +33,11 @@
         <counts>
           <entry key="project.closed" value="10" />
           <entry key="project.open.time.0" value="4" />
-          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -51,28 +48,30 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="1" value="3" />
+          <entry key="2" value="2" />
           <entry key="gitignore" value="1" />
           <entry key="lastfailed" value="1" />
-          <entry key="log" value="13" />
+          <entry key="log" value="51" />
           <entry key="md" value="5" />
           <entry key="nodeids" value="1" />
-          <entry key="py" value="182" />
+          <entry key="py" value="209" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Log" value="13" />
+          <entry key="Log" value="56" />
           <entry key="Markdown" value="5" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="182" />
+          <entry key="Python" value="209" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="46" />
-          <entry key="py" value="11336" />
+          <entry key="py" value="13064" />
           <entry key="txt" value="26" />
           <entry key="yaml" value="52" />
         </counts>
@@ -80,7 +79,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="72" />
-          <entry key="Python" value="11336" />
+          <entry key="Python" value="13064" />
           <entry key="YAML" value="52" />
         </counts>
       </usages-collector>
@@ -88,36 +87,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tmp/other.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tmp/other/other.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="722">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1538215783799" expanded="true" signature="944:949" ph="..." />
+                <marker date="1538296164366" expanded="true" signature="1043:1048" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/log/log.py">
+        <entry file="file://$PROJECT_DIR$/tmp/other/other2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="459">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python3.6/logging/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="1845" selection-start-line="1845" selection-end-line="1845" />
             </state>
           </provider>
         </entry>
@@ -125,39 +115,59 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tmp/logtest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="11" selection-start-line="11" selection-end-line="31" selection-end-column="1" />
+            <state relative-caret-position="155">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
-                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#1#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/.pytest_cache/v/cache/lastfailed">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/common/conf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" selection-start-line="4" selection-end-line="25" selection-end-column="1" />
+              <folding>
+                <marker date="1538294659724" expanded="true" signature="739:744" ph="..." />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/conftest.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/log/log.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+            <state relative-caret-position="250">
+              <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <marker date="1538129379033" expanded="true" signature="156:161" ph="..." />
-                <marker date="1538129379033" expanded="true" signature="299:304" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tmp/namekotest.py">
+        <entry file="file://$PROJECT_DIR$/NamekoDemo/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="19">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NamekoDemo/run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,20 +175,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tmp/usage_context.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="309">
+              <caret line="74" column="15" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/test_view.py">
+        <entry file="file://$PROJECT_DIR$/../openstack/oslo.log-3.39.0/oslo_log/log.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-              <folding>
-                <marker date="1538129451037" expanded="true" signature="24:29" ph="..." />
-              </folding>
+            <state relative-caret-position="179">
+              <caret line="427" selection-start-line="427" selection-end-line="427" />
             </state>
           </provider>
         </entry>
@@ -202,6 +209,9 @@
       <find>context_utils</find>
       <find>version</find>
       <find>basic</find>
+      <find>shouldRollover</find>
+      <find>emit</find>
+      <find>get_loggers</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -244,10 +254,15 @@
         <option value="$PROJECT_DIR$/tests/conftest.py" />
         <option value="$PROJECT_DIR$/tests/test_view.py" />
         <option value="$PROJECT_DIR$/tmp/namekotest.py" />
-        <option value="$PROJECT_DIR$/NamekoDemo/run.py" />
-        <option value="$PROJECT_DIR$/tmp/logtest.py" />
-        <option value="$PROJECT_DIR$/common/log/log.py" />
         <option value="$PROJECT_DIR$/tmp/other.py" />
+        <option value="$PROJECT_DIR$/tmp/other2.py" />
+        <option value="$PROJECT_DIR$/NamekoDemo/run.py" />
+        <option value="$PROJECT_DIR$/tmp/__init__.py" />
+        <option value="$PROJECT_DIR$/common/conf.py" />
+        <option value="$PROJECT_DIR$/tmp/logtest.py" />
+        <option value="$PROJECT_DIR$/tmp/other/other.py" />
+        <option value="$PROJECT_DIR$/tmp/other/other2.py" />
+        <option value="$PROJECT_DIR$/common/log/log.py" />
       </list>
     </option>
   </component>
@@ -258,9 +273,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="717" />
-    <option name="y" value="79" />
-    <option name="width" value="1366" />
+    <option name="x" value="612" />
+    <option name="y" value="70" />
+    <option name="width" value="1356" />
     <option name="height" value="994" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -271,7 +286,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,18 +301,7 @@
             <path>
               <item name="DemoLib" type="b2602c69:ProjectViewProjectNode" />
               <item name="DemoLib" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DemoLib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DemoLib" type="462c0819:PsiDirectoryNode" />
               <item name="FlaskDemo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DemoLib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DemoLib" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DemoLib" type="b2602c69:ProjectViewProjectNode" />
@@ -310,10 +313,17 @@
               <item name="DemoLib" type="462c0819:PsiDirectoryNode" />
               <item name="tmp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DemoLib" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DemoLib" type="462c0819:PsiDirectoryNode" />
+              <item name="tmp" type="462c0819:PsiDirectoryNode" />
+              <item name="other" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,11 +335,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tmp/other" />
       <recent name="$PROJECT_DIR$/test" />
       <recent name="$PROJECT_DIR$/tmp" />
       <recent name="$PROJECT_DIR$/common" />
       <recent name="$PROJECT_DIR$/common/log" />
-      <recent name="$PROJECT_DIR$/FlaskDemo/server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -345,28 +355,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.logtest">
-    <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="DemoLib" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FlaskDemo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FlaskDemo/app.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="logtest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DemoLib" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -411,6 +399,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="other" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DemoLib" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tmp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tmp/other/other.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DemoLib" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -433,7 +443,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_view" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="usage_context" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DemoLib" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -441,12 +451,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tmp" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_view.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tmp/usage_context.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -456,19 +466,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.app (1)" />
-      <item itemvalue="Python.test_view" />
       <item itemvalue="Python.namekotest" />
       <item itemvalue="Python.logtest" />
       <item itemvalue="Python.run" />
+      <item itemvalue="Python.usage_context" />
+      <item itemvalue="Python.other" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.logtest" />
+        <item itemvalue="Python.usage_context" />
         <item itemvalue="Python.run" />
+        <item itemvalue="Python.other" />
         <item itemvalue="Python.namekotest" />
-        <item itemvalue="Python.test_view" />
-        <item itemvalue="Python.app (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -516,14 +526,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1248666" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988864" visible="true" weight="0.18676628" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info id="Structure" order="2" sideWeight="0.5011136" weight="0.16915688" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30178174" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4988864" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30178174" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.53786194" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -533,7 +545,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.27060133" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32962137" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3298969" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32962137" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -583,46 +595,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/common/log/log.py</url>
-          <line>80</line>
-          <option name="timeStamp" value="1" />
+          <url>file:///usr/lib/python3.6/logging/handlers.py</url>
+          <line>157</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file:///usr/lib/python3.6/logging/handlers.py</url>
+          <line>183</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tmp/usage_context.py</url>
+          <line>74</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/code/venv3/lib/python3.7/linecache.py" />
-    <entry file="file://$USER_HOME$/Desktop/code/venv3/lib/python3.7/warnings.py" />
-    <entry file="file://$USER_HOME$/Desktop/code/venv3/lib/python3.7/site-packages/debtcollector/_utils.py" />
-    <entry file="file://$USER_HOME$/Desktop/code/venv3/lib/python3.7/site-packages/debtcollector/renames.py" />
-    <entry file="file://$USER_HOME$/Desktop/code/venv3/lib/python3.7/site-packages/oslo_log/formatters.py" />
-    <entry file="file://$PROJECT_DIR$/../openstack/oslo.log-3.39.0/oslo_log/handlers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/code/venv3/lib/python3.7/site-packages/oslo_context/context.py" />
-    <entry file="file://$PROJECT_DIR$/common/log/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../openstack/oslo.log-3.39.0/oslo_log/formatters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8607">
-          <caret line="470" selection-start-line="470" selection-end-line="470" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../openstack/oslo.context-2.21.0/oslo_context/context.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="356" selection-start-line="356" selection-end-line="356" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NamekoDemo/config.yaml" />
-    <entry file="file://$USER_HOME$/Desktop/code/venv3/lib/python3.7/site-packages/nameko/runners.py" />
     <entry file="file://$PROJECT_DIR$/FlaskDemo/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -646,13 +636,6 @@
     <entry file="file://$PROJECT_DIR$/common/contextstore.py" />
     <entry file="file://$USER_HOME$/Desktop/code/venv3/lib/python3.7/site-packages/nameko/containers.py" />
     <entry file="file://$PROJECT_DIR$/common/log/formatters.py" />
-    <entry file="file://$PROJECT_DIR$/../openstack/oslo.log-3.39.0/oslo_log/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -711,26 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NamekoDemo/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlaskDemo/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <marker date="1538126767819" expanded="true" signature="86:91" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlaskDemo/server/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -742,75 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding>
-            <marker date="1538124384362" expanded="true" signature="33:38" ph="..." />
-            <marker date="1538124384362" expanded="true" signature="184:189" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/.pytest_cache/v/cache/lastfailed">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding>
-            <marker date="1538129451037" expanded="true" signature="24:29" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/conftest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1538129379033" expanded="true" signature="156:161" ph="..." />
-            <marker date="1538129379033" expanded="true" signature="299:304" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/code/venv36/lib/python3.6/site-packages/nameko/runners.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-474">
-          <caret line="104" column="4" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/context.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/namekotest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/usage_context.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NamekoDemo/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1314">
-          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-            <element signature="e#3004#3149#0" />
-            <element signature="e#3495#3711#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -824,48 +718,214 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/logtest.py">
+    <entry file="file://$PROJECT_DIR$/tests/.pytest_cache/v/cache/lastfailed">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/conftest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="11" selection-start-line="11" selection-end-line="31" selection-end-column="1" />
+        <state relative-caret-position="38">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1538129379033" expanded="true" signature="156:161" ph="..." />
+            <marker date="1538129379033" expanded="true" signature="299:304" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/namekotest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding>
+            <marker date="1538129451037" expanded="true" signature="24:29" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/context.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/logging/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/logging/handlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="149" column="24" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/context.log.1">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/context.log.2">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/timemachine-efs.log.1">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlaskDemo/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <marker date="1538126767819" expanded="true" signature="86:91" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/context.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="19">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/logtest/test.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/other/other.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/other2/other2.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NamekoDemo/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/log/timemachine-efs.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="-541" />
+        <state relative-caret-position="76">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/context.log">
+    <entry file="file://$PROJECT_DIR$/log/namekodemo/service.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NamekoDemo/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/code/venv36/lib/python3.6/site-packages/nameko/runners.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/usage_context.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="74" column="15" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../openstack/oslo.log-3.39.0/oslo_log/log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="427" selection-start-line="427" selection-end-line="427" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file:///usr/lib/python3.6/logging/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="1465" column="8" selection-start-line="1465" selection-start-column="8" selection-end-line="1465" selection-end-column="8" />
+          <folding>
+            <element signature="e#8011#12331#0" />
+            <element signature="e#14738#22107#0" />
+            <element signature="e#22244#23250#0" />
+            <element signature="e#23466#24818#0" />
+            <element signature="e#26568#27194#0" />
+            <element signature="e#27229#27444#0" />
+            <element signature="e#38126#38519#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/conf.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="1845" selection-start-line="1845" selection-end-line="1845" />
+          <caret line="4" selection-start-line="4" selection-end-line="25" selection-end-column="1" />
+          <folding>
+            <marker date="1538294659724" expanded="true" signature="739:744" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/other/other2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/other/other.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1538296164366" expanded="true" signature="1043:1048" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/logtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#1#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/log/log.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="250">
+          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/other.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1538215783799" expanded="true" signature="944:949" ph="..." />
           </folding>
         </state>
       </provider>

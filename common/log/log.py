@@ -1,11 +1,9 @@
-import sys
+
 import os
 import logging
 import logging.handlers
 from logging import getLevelName
 import inspect
-import datetime
-from dateutil import tz
 from common.context import get_current
 
 
@@ -76,7 +74,7 @@ def getLogger(name=None):
     return _loggers[name]
 
 
-def setup(conf,logger=None):
+def setup(conf,logger=None,sub_log_path=None):
 
     log_root = getLogger()
 
@@ -86,7 +84,7 @@ def setup(conf,logger=None):
     for handler in list(log_root.handlers):
         log_root.removeHandler(handler)
 
-    logpath = _get_log_file_path(conf)
+    logpath = _get_log_file_path(conf,sub_log_path)
 
     if logpath:
         rotating_conf = conf.rotating_filehandler
@@ -106,10 +104,20 @@ def setup(conf,logger=None):
     log_root.setLevel(getLevelName(conf.level))
 
 
-def _get_log_file_path(conf):
+def _get_log_file_path(conf,sub_log_path):
     rotating = conf.rotating_filehandler
     logfile = rotating['filename']
     logdir = rotating['filepath']
+
+    if sub_log_path:
+        sub_path,file_name = os.path.split(sub_log_path)
+        if sub_path:
+            logdir = os.path.join(logdir,sub_path)
+        if file_name:
+            logfile = file_name
+
+    if not os.path.exists(logdir):
+        os.makedirs(logdir)
 
     if logfile and not logdir:
         return logfile
