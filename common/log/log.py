@@ -1,11 +1,9 @@
-
 import os
 import logging
 import logging.handlers
 from logging import getLevelName
-import inspect
 from common.context import get_current
-
+from common.conf import get_log_config
 
 
 class ContextFormatter(logging.Formatter):
@@ -67,24 +65,26 @@ def _update_record_with_context(record):
 _loggers = {}
 
 
-def getLogger(name=None):
+def _get_logger(name=None):
     if name not in _loggers:
         _loggers[name] = logging.getLogger(name)
 
     return _loggers[name]
 
 
-def setup(conf,logger=None,sub_log_path=None):
+def getLogger(name=None):
+    return _get_logger(name)
 
-    log_root = getLogger()
 
-    if logger:
-        log_root = logger
+def setup(name=None, sub_log_path=None):
+    conf = get_log_config()
 
-    for handler in list(log_root.handlers):
-        log_root.removeHandler(handler)
+    logger = _get_logger(name)
 
-    logpath = _get_log_file_path(conf,sub_log_path)
+    for handler in list(logger.handlers):
+        logger.removeHandler(handler)
+
+    logpath = _get_log_file_path(conf, sub_log_path)
 
     if logpath:
         rotating_conf = conf.rotating_filehandler
@@ -92,27 +92,27 @@ def setup(conf,logger=None,sub_log_path=None):
         rotating_conf['filename'] = logpath
         file_handler = logging.handlers.RotatingFileHandler(**rotating_conf)
 
-        log_root.addHandler(file_handler)
+        logger.addHandler(file_handler)
 
     streamlog = logging.StreamHandler()
-    log_root.addHandler(streamlog)
+    logger.addHandler(streamlog)
 
-    for handler in log_root.handlers:
+    for handler in logger.handlers:
         handler.setFormatter(ContextFormatter(datefmt=conf.date_format,
-                             config=conf))
+                                              config=conf))
 
-    log_root.setLevel(getLevelName(conf.level))
+    logger.setLevel(getLevelName(conf.level))
 
 
-def _get_log_file_path(conf,sub_log_path):
+def _get_log_file_path(conf, sub_log_path):
     rotating = conf.rotating_filehandler
     logfile = rotating['filename']
     logdir = rotating['filepath']
 
     if sub_log_path:
-        sub_path,file_name = os.path.split(sub_log_path)
+        sub_path, file_name = os.path.split(sub_log_path)
         if sub_path:
-            logdir = os.path.join(logdir,sub_path)
+            logdir = os.path.join(logdir, sub_path)
         if file_name:
             logfile = file_name
 
@@ -124,9 +124,4 @@ def _get_log_file_path(conf,sub_log_path):
 
     if logfile and logdir:
         return os.path.join(logdir, logfile)
-
-    if logdir:
-        binary = os.path.basename(
-            inspect.stack()[-1][1])  # get current file name
-        return '%s.log' % (os.path.join(logdir, binary),)
     return None
