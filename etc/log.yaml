@@ -1,7 +1,7 @@
 date_format: '%Y-%m-%d %H:%M:%S'
 level: 'INFO'
-default_format_string: '%(asctime)s %(process)d %(levelname)s %(name)s %(message)s'
-context_format_string: '%(asctime)s %(process)d %(levelname)s %(name)s [%(request_id)s] %(message)s'
+default_format_string: '%(asctime)s %(process)d %(threadName)s %(thread)d %(levelname)s %(name)s %(message)s'
+context_format_string: '%(asctime)s %(process)d %(threadName)s %(thread)d %(levelname)s %(name)s [%(request_id)s] %(message)s'
 rotating_filehandler:
   'filename': 'base.log'
   'maxBytes': 104857600

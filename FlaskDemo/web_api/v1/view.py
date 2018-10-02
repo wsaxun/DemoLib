@@ -1,4 +1,5 @@
-from flask import jsonify, request
+import json
+from flask import request
 from flask.views import MethodView
 from nameko.standalone.rpc import ClusterRpcProxy
 
@@ -19,7 +20,7 @@ def rpc_request(action,params=None,task_id=None):
             if action == 'get_result':
                 result = rpc.task_service.get_result(task_id)
                 LOG.info('Get task result, result is %s' % result)
-                return jsonify({'result': result})
+                return json.dumps({'result': result})
 
             if action == 'add_policy':
                 task_id = rpc.task_service.add_policy(params)
@@ -31,7 +32,7 @@ def rpc_request(action,params=None,task_id=None):
 
     except Exception as e:
         LOG.error(str(e))
-    return jsonify({'task_id': task_id})
+    return json.dumps({'task_id': task_id})
 
 class Result(MethodView):
     def get(self,task_id):
@@ -54,7 +55,7 @@ class Result(MethodView):
         action = 'get_result'
         return rpc_request(action,task_id=task_id)
 
-class Test(MethodView):
+class Index(MethodView):
     def get(self):
         """
         Only test

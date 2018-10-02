@@ -1,7 +1,7 @@
 from . import api_blueprint
-from .view import Test, Policy, Result
+from .view import Index, Policy, Result
 
-api_blueprint.add_url_rule('/', view_func=Test.as_view('test'))
+api_blueprint.add_url_rule('/', view_func=Index.as_view('index'))
 
 api_blueprint.add_url_rule('/result/<string:task_id>',
                            view_func=Result.as_view('result'), methods=['GET'])

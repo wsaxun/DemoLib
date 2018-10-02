@@ -3,7 +3,7 @@ import logging
 import logging.handlers
 from logging import getLevelName
 from common.context import get_current
-from common.conf import get_log_config
+from common.conf import get_log_conf
 
 
 class ContextFormatter(logging.Formatter):
@@ -77,7 +77,7 @@ def getLogger(name=None):
 
 
 def setup(name=None, sub_log_path=None):
-    conf = get_log_config()
+    conf = get_log_conf()
 
     logger = _get_logger(name)
 

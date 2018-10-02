@@ -12,3 +12,5 @@ webApiConf = get_webApi_conf()
 print(amqpConf)
 print(logConf)
 print(webApiConf)
+
+print(type(logConf))
