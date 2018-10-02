@@ -1,0 +1,24 @@
+
+WEB: &WEB
+  DEBUG: true
+  SECRET_KEY: 'hard to guess string'
+  SWAGGER:
+    swagger_version: '2.0'
+    specs:
+      - version: '0.0.1'
+        title: 'webApi Swagger App'
+        description: 'This is a web api.'
+        endpoint: 'v1_spec'
+        route: '/v1/spec'
+
+DEV:
+  <<: *WEB
+  DEBUG: true
+
+TEST:
+  <<: *WEB
+  DEBUG: false
+
+PRD:
+  <<: *WEB
+  DEBUG: false

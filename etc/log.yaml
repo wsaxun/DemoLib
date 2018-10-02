@@ -4,7 +4,6 @@ default_format_string: '%(asctime)s %(process)d %(levelname)s %(name)s %(message
 context_format_string: '%(asctime)s %(process)d %(levelname)s %(name)s [%(request_id)s] %(message)s'
 rotating_filehandler:
   'filename': 'base.log'
-  'filepath': '/home/greene/Github/DemoLib/log'
   'maxBytes': 104857600
   'backupCount': 1000
   'encoding': 'utf8'
