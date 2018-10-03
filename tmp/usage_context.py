@@ -30,7 +30,6 @@ More information about Oslo Logging can be found at:
 from oslo_config import cfg
 from oslo_context import context
 from oslo_log import log as logging
-import threading
 
 LOG = logging.getLogger(__name__)
 CONF = cfg.CONF
@@ -65,11 +64,13 @@ def prepare():
     extra_log_level_defaults = [
         'dogpile=INFO',
         'routes=INFO'
-        ]
+    ]
 
+    default_log_levels = logging.get_default_log_levels() + \
+                         extra_log_level_defaults
     logging.set_defaults(
-        default_log_levels=logging.get_default_log_levels() +
-        extra_log_level_defaults)
+        default_log_levels=default_log_levels
+    )
 
     # Required setup based on configuration and domain
     logging.setup(CONF, DOMAIN)

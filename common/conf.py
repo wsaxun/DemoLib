@@ -30,7 +30,7 @@ def get_log_conf():
         context_format_string=conf['context_format_string'],
         rotating_filehandler=conf['rotating_filehandler']
     )
-    CONF.rotating_filehandler['filepath'] = os.path.join(APP_HOME,'log')
+    CONF.rotating_filehandler['filepath'] = os.path.join(APP_HOME, 'log')
     return CONF
 
 

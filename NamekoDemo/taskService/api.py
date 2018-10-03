@@ -6,8 +6,10 @@ from common.context import RequestContext
 
 LOG = logging.getLogger(__name__)
 
+
 def generate_request_id():
     return uuid.uuid4().hex
+
 
 def fibonacci():
     """
@@ -15,7 +17,7 @@ def fibonacci():
     :param n:
     :return:
     """
-    context = RequestContext(generate_request_id(),'100000')
+    RequestContext(generate_request_id(), '100000')
 
     LOG.info('start test fibonacci.')
 
@@ -38,9 +40,9 @@ def add_policy(params):
     :param params:
     :return:
     """
-    context = RequestContext(generate_request_id(),'100000')
+    RequestContext(generate_request_id(), '100000')
 
-    LOG.info('start add policy, params is %s'%params)
+    LOG.info('start add policy, params is %s' % params)
 
     # add other code
 
@@ -55,9 +57,9 @@ def delete_policy(params):
     :param params:
     :return:
     """
-    context = RequestContext(generate_request_id(),'100000')
+    RequestContext(generate_request_id(), '100000')
 
-    LOG.info('start delete policy, params is %s'%params)
+    LOG.info('start delete policy, params is %s' % params)
 
     # add other code
 

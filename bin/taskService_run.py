@@ -23,25 +23,7 @@ from common.log import log as logging
 LOG = logging.getLogger(__name__)
 
 
-def setup_backdoor(runner, port):
-    def _bad_call():
-        raise RuntimeError(
-            'This would kill your service, not close the backdoor. To exit, '
-            'use ctrl-c.')
-    socket = eventlet.listen(('localhost', port))
-    # work around https://github.com/celery/kombu/issues/838
-    socket.settimeout(None)
-    gt = eventlet.spawn(
-        backdoor.backdoor_server,
-        socket,
-        locals={
-            'runner': runner,
-            'quit': _bad_call,
-            'exit': _bad_call,
-        })
-    return socket, gt
-
-def run(services, config, backdoor_port=None):
+def run(services, config):
     service_runner = ServiceRunner(config)
     for service_cls in services:
         service_runner.add_service(service_cls)
@@ -52,9 +34,6 @@ def run(services, config, backdoor_port=None):
         eventlet.spawn_n(service_runner.stop)
 
     signal.signal(signal.SIGTERM, shutdown)
-
-    if backdoor_port is not None:
-        setup_backdoor(service_runner, backdoor_port)
 
     service_runner.start()
 
@@ -88,8 +67,8 @@ def run(services, config, backdoor_port=None):
 
 from taskService.service import TaskService
 
-def main():
 
+def main():
     config = get_amqp_conf()
     logging.setup(sub_log_path='namekoDemo/taskService.log')
 
@@ -97,6 +76,7 @@ def main():
     services.append(TaskService)
 
     run(services, config)
+
 
 if __name__ == '__main__':
     main()

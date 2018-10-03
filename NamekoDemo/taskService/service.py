@@ -21,14 +21,14 @@ class TaskService(object):
         return self.processor.start_task(name)
 
     @rpc
-    def add_policy(self,params):
+    def add_policy(self, params):
         name = 'add_policy'
-        return self.processor.start_task(name,params)
+        return self.processor.start_task(name, params)
 
     @rpc
-    def delete_policy(self,params):
+    def delete_policy(self, params):
         name = 'delete_policy'
-        return self.processor.start_task(name,params)
+        return self.processor.start_task(name, params)
 
     @rpc
     def get_result(self, task_id):

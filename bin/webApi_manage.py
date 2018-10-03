@@ -12,9 +12,10 @@ from web_api import create_app
 
 api_application = create_app()
 
-api_application.wsgi_app = DispatcherMiddleware(api_application.wsgi_app,OrderedDict({
-    '/api':api_application
-}))
+api_application.wsgi_app = DispatcherMiddleware(api_application.wsgi_app,
+                                                OrderedDict({
+                                                    '/api': api_application
+                                                }))
 
 manage = Manager(api_application)
 

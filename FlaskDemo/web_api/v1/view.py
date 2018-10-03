@@ -9,7 +9,7 @@ from common.log import log as logging
 LOG = logging.getLogger(__name__)
 
 
-def rpc_request(action,params=None,task_id=None):
+def rpc_request(action, params=None, task_id=None):
     amqp = get_amqp_conf()
     try:
         with ClusterRpcProxy(amqp) as rpc:
@@ -34,8 +34,9 @@ def rpc_request(action,params=None,task_id=None):
         LOG.error(str(e))
     return json.dumps({'task_id': task_id})
 
+
 class Result(MethodView):
-    def get(self,task_id):
+    def get(self, task_id):
         """
         Get task result
         ---
@@ -53,7 +54,8 @@ class Result(MethodView):
         """
 
         action = 'get_result'
-        return rpc_request(action,task_id=task_id)
+        return rpc_request(action, task_id=task_id)
+
 
 class Index(MethodView):
     def get(self):
@@ -70,6 +72,7 @@ class Index(MethodView):
 
         action = 'test'
         return rpc_request(action)
+
 
 class Policy(MethodView):
 
@@ -102,7 +105,7 @@ class Policy(MethodView):
         params = request.json
 
         action = 'add_policy'
-        return rpc_request(action,params=params)
+        return rpc_request(action, params=params)
 
     def delete(self):
         """
@@ -133,4 +136,4 @@ class Policy(MethodView):
         params = request.json
 
         action = 'delete_policy'
-        return rpc_request(action,params=params)
+        return rpc_request(action, params=params)

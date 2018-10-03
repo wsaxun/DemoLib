@@ -1,22 +1,23 @@
-
 from common.log import log as logging
-from collections import namedtuple
 
 from other.other import func as func1
 from other.other2 import func as func2
 
 import uuid
 import sys
+
 sys.path.append('../')
 
 LOG = logging.getLogger(__name__)
 DOMAIN = 'demo'
 
+
 def generate_request_id():
     return uuid.uuid4().hex
 
+
 if __name__ == '__main__':
-    logging.setup(name=__name__,sub_log_path='logtest/test.log')
+    logging.setup(name=__name__, sub_log_path='logtest/test.log')
 
     LOG.info("Welcome to Logging")
     LOG.info("Without context")

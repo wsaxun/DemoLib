@@ -2,8 +2,10 @@ import threading
 
 _request_store = threading.local()
 
+
 def get_current():
-    return getattr(_request_store,'context',None)
+    return getattr(_request_store, 'context', None)
+
 
 class RequestContext(object):
     def __init__(self,
@@ -21,7 +23,6 @@ class RequestContext(object):
         #     request_id = generate_request_id()
         self.request_id = request_id
 
-
         self.update_store()
 
     def update_store(self):
@@ -33,9 +34,9 @@ class RequestContext(object):
 
         return {'user_id': self.user_id,
                 'request_id': self.request_id,
-                'project_id':self.project_id,
-                'is_admin':self.is_admin,
-                'tenant':self.tenant,
+                'project_id': self.project_id,
+                'is_admin': self.is_admin,
+                'tenant': self.tenant,
                 }
 
     @property

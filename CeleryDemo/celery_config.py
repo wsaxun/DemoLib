@@ -2,7 +2,8 @@ from datetime import timedelta
 
 
 class BaseConfig(object):
-    # broker_url = 'amqp://username:password@127.0.0.1:5672/'  # 使用rabbitmq作为消息代理
+    # 使用rabbitmq作为消息代理
+    # broker_url = 'amqp://username:password@127.0.0.1:5672/'
     broker_url = 'redis://localhost:6379/0'
     result_backend = 'redis://localhost:6379/1'  # 任务结果存入redis
     task_serializer = 'msgpack'  # 任务序列化和反序列化使用msgpack方案
