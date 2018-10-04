@@ -1,6 +1,6 @@
 
 DEV:
-  AMQP: 'amqp://guest:guest@localhost:5672/'
+  AMQP: 'amqp://dev:dev@localhost:5672/demolib'
 
 TEST:
   AMQP: 'amqp://guest:guest@localhost:5672/'

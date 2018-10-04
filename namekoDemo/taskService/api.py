@@ -21,7 +21,7 @@ def fibonacci():
 
     LOG.info('start test fibonacci.')
 
-    n = int(100)
+    n = int(10)
     a, b = 1, 1
 
     for i in range(n - 1):

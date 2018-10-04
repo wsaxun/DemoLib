@@ -17,6 +17,10 @@ from taskService.api import (
 LOG = logging.getLogger(__name__)
 
 
+def get_taskid():
+    return uuid.uuid4().hex
+
+
 class TaskProcessor(DependencyProvider):
 
     def __init__(self):
@@ -29,7 +33,7 @@ class TaskProcessor(DependencyProvider):
         self.results = {}
 
     def start_task(self, name, *args, **kwargs):
-        task_id = uuid.uuid4().hex
+        task_id = get_taskid()
         task = self.tasks.get(name)
 
         event = Event()
@@ -40,10 +44,9 @@ class TaskProcessor(DependencyProvider):
         return task_id
 
     def get_result(self, task_id):
-
-        LOG.info('get task %s result' % task_id)
-
         result = self.results.get(task_id)
+
+        LOG.info('get task %s result: %s' % (task_id, result))
 
         if result is None:
             res = "missing"
@@ -51,7 +54,6 @@ class TaskProcessor(DependencyProvider):
             res = result.wait()
         else:
             res = "pending"
-
         return res
 
     def get_dependency(self, worker_ctx):
