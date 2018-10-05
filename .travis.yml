@@ -6,4 +6,4 @@ python:
 install:
   - pip install -r requirements/requirements.txt
 script:
-  - pytest
+  - tox
