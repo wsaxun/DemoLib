@@ -41,7 +41,7 @@ redis==2.10.6
 requests==2.19.1
 six==1.11.0
 toml==0.9.6
-tox==3.4.0
+# tox==3.4.0
 tzlocal==1.5.1
 urllib3==1.23
 vine==1.1.4
