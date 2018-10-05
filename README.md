@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/Glf9832/DemoLib.svg?branch=master)](https://travis-ci.org/Glf9832/DemoLib)
+.. image:: https://secure.travis-ci.org/Glf9832/DemoLib.svg?branch=master
+   :target: http://travis-ci.org/Glf9832/DemoLib
+
 # DemoLib
 
 ## Run Demo
