@@ -3,10 +3,10 @@ from mock import MagicMock
 from nameko.testing.utils import get_container
 from nameko.testing.services import entrypoint_hook
 
-from taskservice import dependencies
-from taskservice.service import TaskService
+from namekodemo.taskservice import dependencies
+from namekodemo.taskservice.service import TaskService
 from common.conf import get_amqp_conf
-from taskservice.api import (
+from namekodemo.taskservice.api import (
     fibonacci,
     add_policy,
     delete_policy

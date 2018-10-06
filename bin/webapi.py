@@ -1,6 +1,6 @@
 import os
 import sys
-from flask_script import Manager,Server
+from flask_script import Manager, Server
 from werkzeug.wsgi import DispatcherMiddleware
 from collections import OrderedDict
 
@@ -9,6 +9,7 @@ sys.path.append(os.path.join(app_root, '../'))
 sys.path.append(os.path.join(app_root, '../flaskdemo'))
 
 from flaskdemo.webapi import create_app
+
 
 def main():
     api_application = create_app()
@@ -19,9 +20,10 @@ def main():
                                                     }))
 
     manage = Manager(api_application)
-    manage.add_command('run',Server(host='0.0.0.0',port=8000))
+    manage.add_command('run', Server(host='0.0.0.0', port=8000))
 
     manage.run()
+
 
 if __name__ == '__main__':
     main()

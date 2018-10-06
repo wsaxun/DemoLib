@@ -4,8 +4,8 @@ from mock import MagicMock
 from collections import OrderedDict
 from werkzeug.wsgi import DispatcherMiddleware
 
-from webapi import create_app
-from webapi.v1 import view
+from flaskdemo.webapi import create_app
+from flaskdemo.webapi.v1 import view
 
 URL_TEST_INDEX = '/api/v1/'
 URL_TEST_POLICY = '/api/v1/policy'
