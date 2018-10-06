@@ -15,7 +15,7 @@ from nameko.runners import ServiceRunner
 
 app_root = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(app_root, '../'))
-sys.path.append(os.path.join(app_root, '../NamekoDemo'))
+sys.path.append(os.path.join(app_root, '../namekodemo'))
 
 from common.conf import get_amqp_conf
 from common.log import log as logging
@@ -65,12 +65,12 @@ def run(services, config):
             break
 
 
-from taskService.service import TaskService
+from namekodemo.taskservice.service import TaskService
 
 
 def main():
     config = get_amqp_conf()
-    logging.setup(sub_log_path='namekoDemo/taskService.log')
+    logging.setup(sub_log_path='namekodemo/taskservice.log')
 
     services = []
     services.append(TaskService)

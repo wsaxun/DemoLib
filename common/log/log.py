@@ -32,15 +32,6 @@ class ContextFormatter(logging.Formatter):
             return logging.Formatter.format(self, record)
 
 
-def _dictify_context(context):
-    if getattr(context, 'to_dict', None):
-        return context.to_dict()
-    elif isinstance(context, dict):
-        return context
-
-    return {}
-
-
 def _update_record_with_context(record):
     """Given a log record, update it with context information.
 

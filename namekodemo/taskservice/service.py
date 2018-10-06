@@ -1,12 +1,7 @@
-import os
-import sys
 from nameko.rpc import rpc
 
-app_root = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.join(app_root, '../'))
-
 from common.log import log as logging
-from taskService.dependencies import TaskProcessor
+from namekodemo.taskservice.dependencies import TaskProcessor
 
 LOG = logging.getLogger(__name__)
 

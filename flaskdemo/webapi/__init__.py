@@ -15,11 +15,11 @@ def create_app():
     conf = get_webApi_conf()
     app.config.update(conf)
 
-    loggging.setup(sub_log_path='flaskDemo/webApi.log')
+    loggging.setup(sub_log_path='flaskdemo/webapi.log')
 
     swagger.init_app(app)
 
-    from web_api.v1 import api_blueprint
+    from flaskdemo.webapi.v1 import api_blueprint
     app.register_blueprint(api_blueprint, url_prefix='/v1')
 
     return app

@@ -7,7 +7,7 @@ from eventlet.event import Event
 from nameko.extensions import DependencyProvider
 
 from common.log import log as logging
-from taskService.api import (
+from namekodemo.taskservice.api import (
     fibonacci,
 
     add_policy,
