@@ -36,5 +36,4 @@ pytest -vv
 ### Integration
 ``` bash
 tox
-tox -e flake8
 ```
