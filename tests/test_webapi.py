@@ -28,13 +28,13 @@ def app():
     return application.test_client()
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture()
 def task_data():
     rpc_response_data = MOCK_TASK_RESPONSE_DATA
     return MagicMock(return_value=json.dumps(rpc_response_data))
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture()
 def task_result_data():
     rpc_response_data = MOCK_TASK_RESULT_DATA
     return MagicMock(return_value=json.dumps(rpc_response_data))
