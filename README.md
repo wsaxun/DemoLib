@@ -2,6 +2,12 @@
 
 # DemoLib
 
+## Environmental variable
+```
+DEMOLIB_HOME
+DEMOLIB_PYENV
+```
+
 ## Run Demo
 
 ### CeleryDemo
