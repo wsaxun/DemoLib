@@ -13,7 +13,7 @@ from eventlet import backdoor
 
 from nameko.runners import ServiceRunner
 
-sys.path.append(os.environ.get('DEMOLIB_HOME',None))
+sys.path.append(os.environ.get('DEMOLIB_HOME', None))
 
 from common.conf import get_amqp_conf
 from common.log import log as logging

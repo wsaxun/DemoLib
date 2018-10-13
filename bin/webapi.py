@@ -4,7 +4,7 @@ from flask_script import Manager, Server
 from werkzeug.wsgi import DispatcherMiddleware
 from collections import OrderedDict
 
-sys.path.append(os.environ.get('DEMOLIB_HOME',None))
+sys.path.append(os.environ.get('DEMOLIB_HOME', None))
 
 from flaskdemo.webapi import create_app
 

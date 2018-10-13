@@ -2,8 +2,8 @@ import os
 import yaml
 from collections import namedtuple
 
-DEMOLIB_HOME = os.environ.get('DEMOLIB_HOME',None)
-DEMOLIB_CURRENT_ENV = os.environ.get('DEMOLIB_CURRENT_ENV',None)
+DEMOLIB_HOME = os.environ.get('DEMOLIB_HOME', None)
+DEMOLIB_CURRENT_ENV = os.environ.get('DEMOLIB_CURRENT_ENV', None)
 
 
 def _load_yaml_config(file_name):

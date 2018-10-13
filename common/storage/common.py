@@ -57,4 +57,3 @@ def get_session():
 def create_table():
     engine = get_engine()
     metadata.create_all(engine)
-
