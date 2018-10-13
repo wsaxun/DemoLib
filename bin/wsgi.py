@@ -9,6 +9,6 @@ from flaskdemo.webapi import create_app
 
 application = create_app()
 
-application.wsgi_app = DispatcherMiddleware(application.wsgi_app,OrderedDict((
-    ('/api',application),
+application.wsgi_app = DispatcherMiddleware(application.wsgi_app, OrderedDict((
+    ('/api', application),
 )))
