@@ -6,6 +6,7 @@ from werkzeug.wsgi import DispatcherMiddleware
 
 from flaskdemo.webapi import create_app
 from flaskdemo.webapi.v1 import view
+from common import conf
 
 URL_TEST_INDEX = '/api/v1/'
 URL_TEST_POLICY = '/api/v1/policy'
@@ -20,6 +21,8 @@ MOCK_TASK_RESULT_DATA = {"result": "data"}
 
 @pytest.fixture(scope="module")
 def app():
+    conf.get_webApi_conf = MagicMock()
+    conf.get_amqp_conf = MagicMock()
     application = create_app()
     application.wsgi_app = DispatcherMiddleware(application.wsgi_app,
                                                 OrderedDict({

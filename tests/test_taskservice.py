@@ -5,7 +5,7 @@ from nameko.testing.services import entrypoint_hook
 
 from namekodemo.taskservice import dependencies
 from namekodemo.taskservice.service import TaskService
-from common.conf import get_amqp_conf
+from common import conf
 from namekodemo.taskservice.api import (
     fibonacci,
     add_policy,
@@ -14,10 +14,12 @@ from namekodemo.taskservice.api import (
 
 MOCK_TASK_ID = 'c67f957adbae41fc98bc5dd8cb8e1a6c'
 
+AMQP_URI = {'AMQP_URI':'amqp://dev:dev@localhost:5672/demolib'}
 
-@pytest.fixture(scope="module")
+@pytest.fixture()
 def rabbit_conf():
-    amqp_uri = get_amqp_conf()
+    conf.get_amqp_conf = MagicMock(return_value=AMQP_URI)
+    amqp_uri = conf.get_amqp_conf()
     return amqp_uri
 
 
