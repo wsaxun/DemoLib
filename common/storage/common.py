@@ -14,22 +14,33 @@ class StorageBase(object):
     def insert(self, values):
         for k, v in values.items():
             setattr(self, k, v)
+        setattr(self, 'session', get_session())
+        self.session.add(self)
+        self._commit()
 
+    def delete(self, query_item):
+        self._query(query_item).delete()
+        self._commit()
+
+    def update(self, query_item, values):
+        self._query(query_item).update(values)
+        self._commit()
+
+    def query(self, query_item):
+        return self._query(query_item)
+
+    @classmethod
+    def _query(cls, query_item):
         session = get_session()
-        session.add(self)
-        session.commit()
+        setattr(cls, 'session', session)
+        items = session.query(cls).filter_by(**query_item)
+        return items
 
-    def delete(self, item):
-        pass
-
-    def update(self, item, values):
-        for k, v in values.items():
-            setattr(self, k, v)
-
-        # session = get_session()
-
-    def query(self, item):
-        pass
+    def _commit(self):
+        try:
+            self.session.commit()
+        except Exception:
+            self.session.rollback()
 
 
 def get_engine():
@@ -38,7 +49,12 @@ def get_engine():
 
 
 def get_session():
-    engine = create_engine(DB_URI)
+    engine = get_engine()
     session = sessionmaker(bind=engine)
-
     return session()
+
+
+def create_table():
+    engine = get_engine()
+    metadata.create_all(engine)
+

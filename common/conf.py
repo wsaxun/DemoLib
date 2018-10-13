@@ -43,6 +43,7 @@ def get_amqp_conf():
     conf = _load_yaml_config('etc/main.yaml')
     return {'AMQP_URI': conf[CURRENT_ENV]['AMQP_URI']}
 
+
 def get_db_uri():
     conf = _load_yaml_config('etc/main.yaml')
     return {'DB_URI': conf[CURRENT_ENV]['DB_URI']}
