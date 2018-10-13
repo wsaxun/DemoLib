@@ -55,16 +55,10 @@ def _update_record_with_context(record):
 
 _loggers = {}
 
-task_modules = ['namekodemo.taskservice.api']
-
 
 def _get_logger(name=None):
     if name not in _loggers:
         _loggers[name] = logging.getLogger(name)
-
-    if name in task_modules:
-        setup(name=name, sub_log_path='task.log')
-
     return _loggers[name]
 
 
@@ -75,9 +69,7 @@ def getLogger(name=None):
 def setup(name=None, sub_log_path=None):
     conf = get_log_conf()
 
-    if name not in _loggers:
-        _loggers[name] = logging.getLogger(name)
-    logger = _loggers[name]
+    logger = getLogger(name)
 
     for handler in list(logger.handlers):
         logger.removeHandler(handler)

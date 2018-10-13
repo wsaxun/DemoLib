@@ -13,9 +13,7 @@ from eventlet import backdoor
 
 from nameko.runners import ServiceRunner
 
-app_root = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.join(app_root, '../'))
-sys.path.append(os.path.join(app_root, '../namekodemo'))
+sys.path.append(os.environ.get('DEMOLIB_HOME',None))
 
 from common.conf import get_amqp_conf
 from common.log import log as logging

@@ -4,9 +4,7 @@ from flask_script import Manager, Server
 from werkzeug.wsgi import DispatcherMiddleware
 from collections import OrderedDict
 
-app_root = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.join(app_root, '../'))
-sys.path.append(os.path.join(app_root, '../flaskdemo'))
+sys.path.append(os.environ.get('DEMOLIB_HOME',None))
 
 from flaskdemo.webapi import create_app
 

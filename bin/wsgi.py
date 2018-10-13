@@ -3,7 +3,7 @@ import sys
 from collections import OrderedDict
 from werkzeug.wsgi import DispatcherMiddleware
 
-sys.path.append(os.environ.get('DEMOLIB_HOME'))
+sys.path.append(os.environ.get('DEMOLIB_HOME',None))
 
 from flaskdemo.webapi import create_app
 
