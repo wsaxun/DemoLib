@@ -41,6 +41,8 @@ class StorageBase(object):
             self.session.commit()
         except Exception:
             self.session.rollback()
+        finally:
+            self.session.close()
 
 
 def get_engine():
