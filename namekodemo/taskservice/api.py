@@ -3,6 +3,8 @@ import uuid
 
 from common.log import log as logging
 from common.context import RequestContext
+from .models import Policy
+from datetime import datetime
 
 LOG = logging.getLogger(__name__)
 
@@ -45,6 +47,11 @@ def add_policy(params):
     LOG.info('start add policy, params is %s' % params)
 
     # add other code
+
+    policy = Policy()
+    params['now_time'] = datetime.now()
+    policy.insert(params)
+
 
     LOG.info('end add policy.')
     return params
