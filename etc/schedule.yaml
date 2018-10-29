@@ -1,6 +1,6 @@
-DBURL: 'sqlite:////tmp/test.db'
+DBURL: 'postgresql+psycopg2://postgres:123456@localhost:5432/demolib'
 EXECUTOR: 100
-COALESCE: ture
+COALESCE: true
 MAXINSTANCES: 1
 MISFIRE: 1
 TASKAPI: 'http://www.baidu.com'

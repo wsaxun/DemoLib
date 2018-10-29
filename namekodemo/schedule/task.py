@@ -46,11 +46,15 @@ def start_backup(*args, duration=None, start_time=None, policy_name=None,
         '%Y-%m-%d %H:%M')
     max_time = min_time + timedelta(hours=duration)
     if not min_time <= now <= max_time:
+        # TODO add log
+        print({'status': 'fail', 'msg': 'can not execute at this time'})
         return {'status': 'fail', 'msg': 'can not execute at this time'}
     url_kwargs.update(policy_name=policy_name)
     try:
         response = requests.post(start_backup_url, data=url_kwargs,
                                  timeout=request_timeout)
+        #TODO add log
+        print('response: %s'%response)
         if not 200 <= response.status_code <= 399:
             return {'status': 'fail', 'msg': 'remote host execute error'}
         result = {'status': 'success', 'data': response.json()}
