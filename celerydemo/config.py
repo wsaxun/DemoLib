@@ -12,11 +12,13 @@ class BaseConfig(object):
     accept_content = ['json', 'msgpack']  # 指点接受的内容类型
     timezone = 'UTC'  # 设置时区
     enable_utc = True  # 开启utc
-    imports = ['celery_tasks']  # 导入任务模块
+    imports = ['tasks']  # 导入任务模块
     task_track_started = True  # 任务跟踪
+    worker_hijack_root_logger = False # 禁用log root 清理
+
     beat_schedule = {
         'test': {
-            'task': 'celery_tasks.test_task_async',
+            'task': 'tasks.fibonacci_async',
             'schedule': timedelta(seconds=10),
         }
     }
