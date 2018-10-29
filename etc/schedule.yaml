@@ -1,0 +1,7 @@
+DBURL: 'sqlite:////tmp/test.db'
+EXECUTOR: 100
+COALESCE: ture
+MAXINSTANCES: 1
+MISFIRE: 1
+TASKAPI: 'http://www.baidu.com'
+TIMEOUT: 5
