@@ -1,5 +1,5 @@
 from datetime import timedelta
-
+from celery.schedules import crontab
 
 class BaseConfig(object):
     # 使用rabbitmq作为消息代理
@@ -19,7 +19,8 @@ class BaseConfig(object):
     beat_schedule = {
         'test': {
             'task': 'tasks.fibonacci_async',
-            'schedule': timedelta(seconds=10),
+            'schedule': crontab('*')
+            # 'schedule': timedelta(seconds=60),
         }
     }
 
