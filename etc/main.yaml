@@ -1,12 +1,22 @@
 
 DEV:
-  AMQP_URI: 'amqp://dev:dev@localhost:5672/demolib'
+  AMQP_URI: 'amqp://guest:guest@localhost:5672/'
   DB_URI: 'postgresql+psycopg2://postgres:123456@localhost:5432/demolib'
+  REDIS_URL: 'redis://localhost:6379/0'
+  REDIS_POOL_NUM: 1000
 
 TEST:
   AMQP_URI: 'amqp://guest:guest@localhost:5672/'
   DB_URI: 'postgresql+psycopg2://postgres:123456@localhost:5432/demolib'
+  REDIS_URL: 'redis://localhost:6379/0'
+  REDIS_POOL_NUM: 1000
+
+
 
 PRD:
   AMQP_URI: 'amqp://guest:guest@localhost:5672/'
   DB_URI: 'postgresql+psycopg2://postgres:123456@localhost:5432/demolib'
+  REDIS_URL: 'redis://localhost:6379/0'
+  REDIS_POOL_NUM: 1000
+
+
