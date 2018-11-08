@@ -52,7 +52,6 @@ def add_policy(params):
     params['now_time'] = datetime.now()
     policy.insert(params)
 
-
     LOG.info('end add policy.')
     return params
 

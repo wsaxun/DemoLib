@@ -1,10 +1,12 @@
+import time
+
 import apscheduler
 from apscheduler.triggers.cron import CronTrigger
 from nameko.rpc import rpc
-from namekodemo.schedule.decorators import (check_start_backup_param, serialization_result)
+from namekodemo.schedule.decorators import (check_start_backup_param,
+                                            serialization)
 from namekodemo.schedule.dependencies import Scheduler as DepScheduler
-from namekodemo.schedule.task import *
-
+from namekodemo.schedule.task import start_backup
 
 
 class Scheduler:
@@ -49,7 +51,7 @@ class Scheduler:
         kwargs = dict(kwargs, **url_kwargs)
         return kwargs
 
-    @serialization_result
+    @serialization
     @check_start_backup_param
     @rpc
     def add_scheduler_start_backup_job(self, policy_name, cron=None,
@@ -72,11 +74,11 @@ class Scheduler:
         scheduler_result = self._execute_scheduler(self.scheduler.add_job,
                                                    start_backup, id=job_id,
                                                    trigger=trigger,
-                                                   misfire_grace_time=misfire_grace_time,
+                                                   misfire_grace_time=misfire_grace_time, # noqa
                                                    kwargs=kwargs)
         return scheduler_result
 
-    @serialization_result
+    @serialization
     @check_start_backup_param
     @rpc
     def modify_start_backup_job(self, job_id, policy_name=None, cron=None,
@@ -97,13 +99,14 @@ class Scheduler:
         trigger = self._generator_trigger(cron)
         kwargs = self._generator_kwargs(policy_name, duration,
                                         start_time, url_kwargs)
-        scheduler_result = self._execute_scheduler(self.scheduler.modify_job, job_id,
+        scheduler_result = self._execute_scheduler(self.scheduler.modify_job,
+                                                   job_id,
                                                    trigger=trigger,
-                                                   misfire_grace_time=misfire_grace_time,
+                                                   misfire_grace_time=misfire_grace_time, # noqa
                                                    kwargs=kwargs)
         return scheduler_result
 
-    @serialization_result
+    @serialization
     @rpc
     def pause_job(self, job_id):
         """
@@ -111,10 +114,11 @@ class Scheduler:
         :param job_id: str
         :return: dict
         """
-        scheduler_result = self._execute_scheduler(self.scheduler.pause_job, job_id)
+        scheduler_result = self._execute_scheduler(self.scheduler.pause_job,
+                                                   job_id)
         return scheduler_result
 
-    @serialization_result
+    @serialization
     @rpc
     def resume_job(self, job_id):
         """
@@ -122,7 +126,8 @@ class Scheduler:
         :param job_id: str
         :return: dict
         """
-        scheduler_result = self._execute_scheduler(self.scheduler.resume_job, job_id)
+        scheduler_result = self._execute_scheduler(self.scheduler.resume_job,
+                                                   job_id)
         return scheduler_result
 
     @rpc
@@ -132,10 +137,11 @@ class Scheduler:
         :param job_id: str
         :return: dict
         """
-        scheduler_result = self._execute_scheduler(self.scheduler.remove_job, job_id)
+        scheduler_result = self._execute_scheduler(self.scheduler.remove_job,
+                                                   job_id)
         return scheduler_result
 
-    @serialization_result
+    @serialization
     @rpc
     def get_job(self, job_id):
         """
@@ -143,10 +149,11 @@ class Scheduler:
         :param job_id: str
         :return: dict
         """
-        scheduler_result = self._execute_scheduler(self.scheduler.get_job, job_id)
+        scheduler_result = self._execute_scheduler(self.scheduler.get_job,
+                                                   job_id)
         return scheduler_result
 
-    @serialization_result
+    @serialization
     @rpc
     def get_jobs(self):
         """

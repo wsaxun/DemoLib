@@ -68,7 +68,7 @@ class RedisClient:
     def _pool():
         max_connections = get_redis_pool_num()
         pool = ConnectionPool.from_url(get_redis_uri(),
-                                        max_connections=max_connections)
+                                       max_connections=max_connections)
         return pool
 
     def __getattr__(self, api):
@@ -76,7 +76,6 @@ class RedisClient:
         if not api:
             raise AttributeError('redis have not this method')
         return api
-
 
 
 def get_engine():

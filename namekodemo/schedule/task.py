@@ -2,7 +2,8 @@ from datetime import datetime, timedelta
 import time
 import requests
 from functools import wraps
-from namekodemo.schedule.schedulerConfig import start_backup_url, request_timeout
+from namekodemo.schedule.schedulerConfig import (start_backup_url,
+                                                 request_timeout)
 
 
 def retry(retry_num=3, delay=5):
@@ -53,8 +54,8 @@ def start_backup(*args, duration=None, start_time=None, policy_name=None,
     try:
         response = requests.post(start_backup_url, data=url_kwargs,
                                  timeout=request_timeout)
-        #TODO add log
-        print('response: %s'%response)
+        # TODO
+        print('response: %s' % response)
         if not 200 <= response.status_code <= 399:
             return {'status': 'fail', 'msg': 'remote host execute error'}
         result = {'status': 'success', 'data': response.json()}
