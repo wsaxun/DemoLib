@@ -2,8 +2,8 @@ import os
 import yaml
 from collections import namedtuple
 
-DEMOLIB_HOME = os.environ.get('DEMOLIB_HOME', '/home/greene/Github/DemoLib')
-DEMOLIB_CURRENT_ENV = os.environ.get('DEMOLIB_CURRENT_ENV', 'DEV')
+DEMOLIB_HOME = os.environ.get('DEMOLIB_HOME', None)
+DEMOLIB_CURRENT_ENV = os.environ.get('DEMOLIB_CURRENT_ENV', None)
 
 
 def _load_yaml_config(file_name):
@@ -47,18 +47,3 @@ def get_amqp_conf():
 def get_db_uri():
     conf = _load_yaml_config('etc/main.yaml')
     return {'DB_URI': conf[DEMOLIB_CURRENT_ENV]['DB_URI']}
-
-
-def get_schedule():
-    conf = _load_yaml_config('etc/schedule.yaml')
-    return conf
-
-
-def get_redis_uri():
-    conf = _load_yaml_config('etc/main.yaml')
-    return {'DB_URI': conf[DEMOLIB_CURRENT_ENV]['REDIS_URI']}
-
-
-def get_redis_pool_num():
-    conf = _load_yaml_config('etc/main.yaml')
-    return {'DB_URI': conf[DEMOLIB_CURRENT_ENV]['REDIS_POOL_NUM']}
