@@ -1,7 +1,8 @@
 import logging
 from apscheduler.schedulers.background import BackgroundScheduler
 from nameko.extensions import DependencyProvider
-from namekodemo.schedule.schedulerConfig import job_stores, executors, job_defaults
+from namekodemo.schedule.schedulerConfig import (job_stores, executors,
+                                                 job_defaults)
 
 
 class Scheduler(DependencyProvider):

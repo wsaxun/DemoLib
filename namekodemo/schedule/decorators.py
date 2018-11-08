@@ -1,43 +1,58 @@
 from functools import wraps
+
 from apscheduler.job import Job
 from namekodemo.schedule.schedulerConfig import misfire
 
 
-def serialization_result(func):
+def _inner_check_single(job_data, job, status):
+    job_result = {'status': status}
+    next_run_time = None
+    if isinstance(job_data, job):
+        if job_data.next_run_time:
+            next_run_time = job_data.next_run_time.strftime(
+                '%Y-%m-%d %H:%M:%S')
+        job = dict(job_id=job_data.id,
+                   func=job_data.func.__name__,
+                   args=job_data.args,
+                   kwargs=job_data.kwargs,
+                   misfire_grace_time=job_data.misfire_grace_time,
+                   next_run_time=next_run_time)
+        job_result.update(data=job)
+        return job_result
+    return None
+
+
+def _inner_check_list(job_data, status):
+    job_result = {'status': status}
+    next_run_time = None
+    for one_job in job_data:
+        serializer_data = []
+        if isinstance(one_job, Job):
+            if one_job.next_run_time:
+                next_run_time = one_job.next_run_time.strftime(
+                    '%Y-%m-%d %H:%M:%S')
+            job = dict(job_id=one_job.id,
+                       func=one_job.func.__name__,
+                       args=one_job.args,
+                       kwargs=one_job.kwargs,
+                       misfire_grace_time=one_job.misfire_grace_time,
+                       next_run_time=next_run_time)
+            serializer_data.append(job)
+        else:
+            serializer_data.append(one_job)
+            job_result.update(data=serializer_data)
+    return job_result
+
+
+def serialization(func):
     @wraps(func)
     def inner(self, *args, **kwargs):
         def serialization_one_job_or_job_list(job_data, status):
-            next_run_time = None
-            job_result = {'status': status}
-            if isinstance(job_data, Job):
-                if job_data.next_run_time:
-                    next_run_time = job_data.next_run_time.strftime(
-                        '%Y-%m-%d %H:%M:%S')
-                job = dict(job_id=job_data.id,
-                           func=job_data.func.__name__,
-                           args=job_data.args,
-                           kwargs=job_data.kwargs,
-                           misfire_grace_time=job_data.misfire_grace_time,
-                           next_run_time=next_run_time)
-                job_result.update(data=job)
-                return job_result
-            for one_job in job_data:
-                serializer_data = []
-                if isinstance(one_job, Job):
-                    if one_job.next_run_time:
-                        next_run_time = one_job.next_run_time.strftime(
-                            '%Y-%m-%d %H:%M:%S')
-                    job = dict(job_id=one_job.id,
-                               func=one_job.func.__name__,
-                               args=one_job.args,
-                               kwargs=one_job.kwargs,
-                               misfire_grace_time=one_job.misfire_grace_time,
-                               next_run_time=next_run_time)
-                    serializer_data.append(job)
-                else:
-                    serializer_data.append(one_job)
-                    job_result.update(data=serializer_data)
-            return job_result
+            ret = _inner_check_single(job_data, Job, status)
+            if ret:
+                return ret
+            item = _inner_check_list(job_data, status)
+            return item
 
         result = func(self, *args, **kwargs)
         if result['status'] == 'fail' or result['status'] != 'success':

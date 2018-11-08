@@ -1,10 +1,10 @@
-from sqlalchemy import Column,Integer,String,DateTime,text
+from sqlalchemy import Column, Integer, String, DateTime, text
 from sqlalchemy.sql import func
 from datetime import datetime
-from common.storage.common import Base,StorageBase
+from common.storage.common import Base, StorageBase
 
 
-class Policy(Base,StorageBase):
+class Policy(Base, StorageBase):
     __tablename__ = 'demolib_policy'
 
     # created_at = Column(DateTime, server_default=text("now()"))
@@ -12,8 +12,9 @@ class Policy(Base,StorageBase):
     # created_at = Column(DateTime, default=datetime.now)
 
     now_time = Column(DateTime)
-    policy_id = Column(Integer,primary_key=True)
+    policy_id = Column(Integer, primary_key=True)
     tenant_id = Column(String)
+
 
 if __name__ == '__main__':
     from common.storage.common import create_table

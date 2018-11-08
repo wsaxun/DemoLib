@@ -5,10 +5,13 @@ from eventlet import sleep
 
 values = [1, 2, 3, 4, 5, 6]
 
+
 def func(value):
     sleep(1)
     # print('pull value: %s'%value)
     return value
+
+
 #
 #
 # def main():
@@ -32,6 +35,7 @@ def handle_result(finished_thread, *args, **kwargs):
     print(finished_thread)
     args[0].send(finished_thread.wait())
 
+
 def main():
     results = []
     pool = eventlet.GreenPool()
@@ -43,16 +47,12 @@ def main():
         gt.link(lambda res: event.send(res.wait()))
         results.append(event)
 
-
     for result in results:
         if result.ready():
-            print('result: %s'%result.wait())
+            print('result: %s' % result.wait())
         else:
             print('waiting')
 
 
 if __name__ == '__main__':
     main()
-
-
-
