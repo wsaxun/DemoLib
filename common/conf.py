@@ -50,3 +50,13 @@ def get_db_uri():
 def get_schedule():
     conf = _load_yaml_config('etc/schedule.yaml')
     return conf
+
+
+def get_redis_uri():
+    conf = _load_yaml_config('etc/main.yaml')
+    return {'DB_URI': conf[DEMOLIB_CURRENT_ENV]['REDIS_URI']}
+
+
+def get_redis_pool_num():
+    conf = _load_yaml_config('etc/main.yaml')
+    return {'DB_URI': conf[DEMOLIB_CURRENT_ENV]['REDIS_POOL_NUM']}
