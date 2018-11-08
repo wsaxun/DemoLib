@@ -1,9 +1,7 @@
 import os
 import yaml
 from collections import namedtuple
-
-DEMOLIB_HOME = os.environ.get('DEMOLIB_HOME', '/home/greene/Github/DemoLib')
-DEMOLIB_CURRENT_ENV = os.environ.get('DEMOLIB_CURRENT_ENV', 'DEV')
+from common.constant import DEMOLIB_HOME,DEMOLIB_CURRENT_ENV
 
 
 def _load_yaml_config(file_name):
